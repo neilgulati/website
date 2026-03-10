@@ -643,7 +643,6 @@ br {
         flex-direction: column;
         }
     #contact {
-        color: purple;
         font-size: 2.25rem;
         text-align: center;
         margin-top: 15px;
@@ -778,7 +777,6 @@ br {
         flex-direction: column;
         }
     #contact {
-        color: green;
         font-size: 2.25rem;
         text-align: center;
         margin-top: 15px;
@@ -914,7 +912,6 @@ br {
         flex-direction: column;
         }
     #contact {
-        color: red;
         font-size: 3.25rem;
         text-align: center;
         margin-top: 15px;
@@ -1044,7 +1041,6 @@ br {
         flex-direction: column;
         }
     #contact {
-        color: skyblue;
         font-size: 3.5rem;
         text-align: center;
         margin-top: 15px;
@@ -1172,7 +1168,6 @@ br {
         flex-direction: column;
         }
     #contact {
-        color: chartreuse;
         font-size: 3.75rem;
         text-align: center;
         margin-top: 15px;
@@ -1294,7 +1289,6 @@ br {
         flex-direction: column;
         }
     #contact {
-        color: magenta;
         font-size: 3.5rem;
         text-align: center;
         margin-top: 15px;
@@ -1420,7 +1414,6 @@ br {
          align-items: flex-start;
         }
     #contact {
-        color: lime;
         font-size: 2.4rem;
         text-align: center;
         margin-top: 15px;
@@ -1485,7 +1478,6 @@ br {
         }
 
     #contact {
-        color: lightpink;
         font-size: 2.25rem;
         }
 
@@ -1566,4 +1558,5 @@ br {
     .error-message {
     font-size: 0.7em;
     }
+
 }
