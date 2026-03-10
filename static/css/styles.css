@@ -1,0 +1,1569 @@
+html, body {
+    min-height: 100%;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    overflow-x: clip;
+    }
+
+
+body {
+    min-height: 100vh;
+    flex-direction: column;
+    overflow-y: visible;
+    background-color: var(--main-bg-color);
+    color: var(--main-variant-color);
+    }
+
+#home svg, #contact-page svg {
+    position: absolute;
+    overflow-x: hidden;
+    }
+
+:root {
+    --main-bg-color: #FFFBF5;
+    --accent-color: #1B56FD;
+    --main-variant-color: #000000   ;
+    --input-text-color: #FFFFFF;
+    --light-black-color: #191919;
+    --grey-color: #4D4D4D;
+    --shadow-color: #E2E2E2;
+    --card-hover-color: #E5E3DD;
+    }
+
+.darkmode {
+   --main-bg-color: #1F1F1F;
+   --accent-color: #184de3;
+   --main-variant-color: #E0E0E0;
+   --input-text-color: #FFFFFF;
+   --light-black-color: #191919;
+   --grey-color: #4D4D4D;
+   --shadow-color: #6D6D6D;
+   --card-hover-color: #191919;
+    }
+
+#theme-switch {
+    position: absolute;
+    height: 3rem;
+    width: 3rem;
+    padding: 0;
+    border-radius: 100%;
+    background-color: var(--main-bg-color);
+    border: 1px solid var(--shadow-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 100px;
+    right: 20px;
+    z-index: 10;
+    }
+
+#theme-switch svg {
+    fill: var(--main-variant-color);
+    }
+
+#theme-switch svg:last-child {
+    display: none;
+    }
+
+.darkmode #theme-switch svg:first-child {
+    display: none;
+    }
+
+.darkmode #theme-switch svg:last-child {
+    display: block;
+    }
+
+* {
+    font-family: "Inter", sans-serif;
+    box-sizing: border-box;
+    }
+
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    box-sizing: border-box;
+    background-size: 70px 70px;
+    background: var(--main-bg-color);
+    font-size: 16px;
+    border: 1px solid var(--main-bg-color);
+  /* If navbar is fixed, use padding-top equal to
+  navbar height here: padding-top: calc(4.25em + 1rem); */
+    }
+
+/* z-index --> specifies the stack order of an element. An element with a z-index of 3 will be placed over an element with z-index of 2.*/
+.header {
+    background: var(--accent-color);
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    /*box-shadow: 0 2.5px 2px -2px var(--shadow-color); */
+    overflow-x: none;
+    }
+
+.header::after {
+    content: '';
+    display: table;
+    clear: both;
+    }
+
+.curve {
+    fill: #FCC737;
+    opacity: 1;
+    }
+
+.navbar-main.container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    }
+
+nav {
+    padding-right: 20px;
+    }
+
+nav ul {
+    margin: 0;
+    padding-left: 5rem;
+    list-style: none;
+    line-height: 1rem;
+    }
+
+nav li {
+    display: inline-block;
+    margin-right: 4rem;
+    padding: 20px 0;
+    position: relative;
+    }
+
+nav a {
+    color: var(--main-bg-color);
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.15em;
+    }
+
+nav a:hover {
+    color: var(--main-bg-color);
+    font-weight: 600;
+    }
+
+nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background-color: var(--main-bg-color);
+    position: absolute;
+    top: 0;
+    width: 0%;
+    transition: all ease-in-out 250ms;
+    }
+
+nav a:hover::before {
+    width: 100%;
+    }
+
+.content {
+    flex-direction: column;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    font-size: 16px;
+    z-index: 5;
+    max-width: 100%;
+    border: 1px solid var(--main-bg-color);
+    }
+
+.side {
+    color: var(--main-bg-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    -ms-flex: 30%; /* IE10 */
+    flex: 30%;
+    flex-wrap: nowrap;
+    }
+
+/* Main column */
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 100%;
+    align-items: start;
+    /*  flex: 70%; */
+    }
+
+/* Fake image, just for this example */
+.profile-img {
+    border-radius: 5rem;
+    background-color: #aaa;
+    width: 13rem;
+    margin-right: 7rem;
+    clip-path: circle()
+    }
+
+.heading-home {
+    transform: scale(1, 1.15);
+    /*background: linear-gradient(
+    to right,
+    #050C9C 17%,
+    #3572EF 17% 34%,
+    #3ABEF9 34% 51%,
+    #A7E6FF 51% 68%
+  );*/
+    font-family: "DM Serif Display", serif;
+    letter-spacing: 1px;
+    line-height: 30px;
+    font-weight: 700;
+    font-size: 2.5rem;
+    padding: 0rem 1.5rem 1rem 2rem;
+    background-size: 200% auto;
+    background-clip: text;
+    /*-webkit-text-fill-color: transparent; */
+    animation: animatedTextGradient 3.75s linear infinite;
+    color: var(--accent-color);
+    }
+
+.highlight {
+    color: var(--accent-color);
+    font-family: "DM Serif Display", serif;
+    }
+
+h3.heading-home {
+    color: var(--main-variant-color);
+    background: none;
+    font-size: 2rem;
+    }
+
+.content-home {
+   /* max-width: 35%; */
+    font-size: 1.25rem;
+    font-weight: 450;
+    padding-left: 2rem;
+    z-index: 20;
+    color: var(--main-variant-color);
+    }
+
+
+.buttons {
+    display: flex;
+    white-space: nowrap;
+    padding-left: 2rem;
+    }
+
+
+.button {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--accent-color);
+    border-radius: 0.35rem;
+    transition: all ease-in-out 0.2s;
+    font-size: 1em;
+    height: 2.5em;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--main-bg-color);
+    width: 10rem;
+    margin-right: 10px;
+    }
+
+.button:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    transition: 0.2s;
+    transition-timing-function: linear;
+    }
+
+
+.footer {
+    /*box-shadow: 0px -2px 2px 0px var(--shadow-color);*/
+    background: var(--accent-color);
+    /*position: absolute;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 15;
+    }
+
+.socialIcons {
+    justify-content: center;
+    top: 100%;
+    left: 150%;
+    font-size: 2em;
+    margin-top: 20px;
+    background-color: transparent;
+    }
+
+.socialIcons i {
+    font-size: 1em;
+    color: var(--accent-color);
+    }
+
+.socialIcons a {
+    text-decoration: none;
+    padding: 10px;
+    background-color: var(--main-bg-color);
+    margin: 10px;
+    border-radius: 50%;
+    }
+
+.socialIcons a:hover > i{
+    font-size: 2.2rem;
+
+    transition: 0.2s ease;
+    }
+
+.text-center {
+    text-align: left;
+    color: var(--main-bg-color);
+    font-size: 0.8em;
+    margin: 0rem !important;
+    padding: 0 1.5rem;
+    }
+
+.card-img {
+    display: block;
+    width: auto;
+    height: 15rem;
+    }
+
+.card {
+    margin: 1rem;;
+    background-color: var(--main-bg-color) !important;
+    border: 1px solid var(--shadow-color) !important;
+    }
+
+.card:hover {
+    background-color: var(--card-hover-color) !important;
+    }
+
+.card-body {
+    padding-bottom: 0rem !important;
+    }
+
+.card-body a {
+    text-decoration: none;
+    color: inherit;
+    }
+
+.card-title .card-content {
+    outline: none;
+    font-weight: 400;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    }
+
+.card-content {
+    margin-bottom: 0rem !important;
+    color: var(--main-variant-color);
+    text-align: left;
+    }
+
+.card-title {
+    font-weight: 600 !important;
+    color: var(--accent-color) !important;
+   }
+
+.card-button {
+    background-color: var(--accent-color);
+    color: var(--main-variant-color);
+    margin-top: 15px;
+    border-radius: 4em;
+    padding: 8px;
+    }
+
+.card-button:hover {
+    cursor: pointer;
+    color: var(--accent-color);
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    }
+
+.work-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    height: fit-content;
+    width: 100%;
+    padding: 0;
+    }
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.fadeInUp-animation {
+    animation: 1.25s fadeInUp;
+    }
+
+.row-contact {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    }
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+    flex-wrap: nowrap;
+    }
+
+#contact-page p {
+    color: var(--main-variant-color);
+    text-align: center;
+    }
+
+/* Main column */
+.main-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+    }
+
+#contact {
+    color: var(--accent-color);
+    font-size: 2.35rem;
+    text-align: center;
+    margin-top: 15px;
+    }
+
+.labels {
+    display: flex;
+    flex-direction: row;
+    }
+
+.left-side {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+    }
+
+.right-side {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    }
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    }
+
+.form-heading {
+    color: var(--accent-color);
+    }
+
+.contact_form {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    margin: 5px;
+    }
+
+label {
+    display: flex;
+    color: var(--main-variant-color);
+    font-size: 1rem;
+    padding: 1.4rem 0.4rem 0.4rem 0rem;
+    font-weight: 550;
+    }
+
+br {
+    line-height: 10px;
+    }
+
+
+#name, #email, #message {
+    color: var(--input-text-color);
+    border-radius: 0.4rem;
+    background-color: var(--light-black-color);
+    opacity: 0.7;
+    width: 25rem;
+    margin-bottom: 1rem;
+    height: 2.5rem;
+    padding: 0.5rem;
+    border: 1px solid var(--grey-color);
+    }
+
+#message {
+    text-wrap: wrap;
+    height: 9.5rem;
+    }
+
+#submit_btn {
+    border: none;
+    background-color: var(--accent-color);
+    border-radius: 0.2rem;
+    font-size: 1rem;
+    height: 2.5rem;
+    font-weight: 550;
+    color: var(--main-variant-color);
+    margin-top: 0.5rem;
+    justify-items: center;
+    width: 25rem;
+    }
+
+#submit_btn:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    transition: 0.2s;
+    transition-timing-function: linear;
+    }
+
+.form-heading {
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    color: var(--accent-color);
+    }
+
+.error-message {
+    color: var(--main-variant-color) !important;
+    font-weight: 500 !important;
+    line-height: 10px;
+    margin-bottom: 0.25em;
+    padding-top: 0.5rem;
+    }
+
+
+/* For extra Small Devices, Phones */
+@media only screen and (min-width : 360px) {
+    nav {
+        text-align: center;
+        padding-right: 0rem;
+        }
+    nav a {
+        font-size: 1.15rem;
+        }
+    nav li {
+        margin-right: 2rem;
+        }
+    nav ul {
+        text-align: center;
+        padding-left: 0rem;
+        margin-left: 1.25rem;
+        }
+    .heading-home {
+        font-size: 1.35rem;
+        padding: 1.5rem 0rem 0.4rem 1.5rem;
+        }
+    h3.heading-home {
+        font-size: 1.6rem;
+        padding-top: 0.3rem;
+        }
+    .main {
+        flex-direction: column-reverse;
+        align-items: center;
+        }
+    .content-home {
+        max-width: 93% !important;
+        font-size: 0.95rem;
+        padding-left: 1.5rem;
+        }
+    .buttons {
+        padding-left: 1.5rem;
+        }
+    .button {
+        font-size: 0.85rem;
+        height: 2.4em;
+        font-weight: 500;
+        width: 8rem;
+        margin-right: 10px;
+        }
+    .profile-img {
+        margin-right: 0rem;
+        width: 200px;
+        height: 110px;
+        margin: 1rem 0;
+        }
+    .socialIcons {
+        font-size: 1.15em;
+        }
+    .socialIcons a:hover > i{
+        font-size: 1.25rem;
+        }
+    .card {
+        margin: 0.5rem;
+        }
+    .card-body {
+        padding: 0.5rem !important;
+        }
+    .card-title, .card-content {
+        font-size: 0.7rem;
+        padding: 0;
+        }
+    .card-title {
+        font-size: 0.9rem;
+        }
+    .labels {
+        flex-direction: column;
+        }
+    .left-side {
+        flex-direction: column;
+        margin-right: 0rem;
+        }
+    .right-side {
+        margin-left: 0rem;
+        flex-direction: column;
+        }
+    #contact {
+        color: purple;
+        font-size: 2.25rem;
+        text-align: center;
+        margin-top: 15px;
+        }
+    #contact-page .content {
+        align-items: center;
+        }
+    #contact-page p {
+        font-size: 1rem;
+       max-width: 65%;
+        }
+    .form-heading {
+        font-size: 1.4rem;
+        padding-bottom: 0;
+        padding-top: 0.5rem;
+        }
+    label {
+        align-self: start;
+        font-size: 0.85rem;
+        margin-top: 0rem;
+        }
+    #name, #email, #message {
+        width: 15rem;
+        height: 2.1rem;
+        margin-bottom:0;
+        font-size: 0.85rem;
+        }
+    #message {
+        height: 7.5rem;
+        padding-bottom: 0;
+        }
+    #submit_btn {
+        font-size: 0.85rem;
+        height: 2.1rem;
+        font-weight: 450;
+        margin-top: 1rem;
+        margin-bottom: 0.25rem;
+        width: 10rem;
+        border-radius: 0.3rem;
+        }
+    .error-message {
+        font-weight: 500 !important;
+        line-height: 5px;
+        margin-top: 0.25rem;
+        align-self: start;
+        font-size: 0.7rem;
+        }
+}
+/* For some large phones */
+@media only screen and (min-width : 375px) {
+    nav {
+        text-align: center;
+        padding-right: 0;
+        }
+    nav a {
+        font-size: 1.2rem;
+        }
+    nav li {
+        margin-right: 2rem;
+        }
+    nav ul {
+        text-align: center;
+        padding-left: 0rem;
+        }
+    .heading-home {
+        font-size: 1.2rem;
+        padding: 2rem 0rem 0.3rem 1.5rem;
+        }
+    h3.heading-home {
+        font-size: 1.5rem;
+        padding-top: 0.3rem;
+        }
+    .main {
+        flex-direction: column-reverse;
+        align-items: center;
+        }
+    .content-home {
+        max-width: 93% !important;
+        font-size: 0.95rem;
+        padding-left: 1.5rem;
+        }
+    .buttons {
+        padding-left: 1.5rem;
+        }
+    .button {
+        border-radius: 0.35rem;
+        font-size: 0.8rem;
+        height: 2.4em;
+        font-weight: 500;
+        width: 8rem;
+        margin-right: 10px;
+        }
+    .profile-img {
+        margin-right: 0rem;
+        width: 250px;
+        height: 125px;
+        margin: 1rem 0;
+        }
+    .socialIcons {
+        font-size: 1.45em;
+        }
+    .socialIcons a:hover > i{
+        font-size: 1.55rem;
+        }
+    .card {
+        margin: 0.5rem;
+        }
+   .card-body {
+        padding: 0.5rem !important;
+        }
+    .card-img, .card-container {
+        height: 9.5rem;
+        }
+    card-button, .card-title, .card-content {
+        font-size: 0.65rem;
+        font-weight: normal;
+        padding: 0;
+        margin: 0;
+        }
+    .card-title {
+        font-size: 0.9rem;
+        }
+    .labels {
+        flex-direction: column;
+        }
+    .left-side {
+        flex-direction: column;
+        margin-right: 0rem;
+        }
+    .right-side {
+        margin-left: 0rem;
+        flex-direction: column;
+        }
+    #contact {
+        color: green;
+        font-size: 2.25rem;
+        text-align: center;
+        margin-top: 15px;
+        }
+    #contact-page p {
+        font-size: 1.05rem;
+        max-width: 65%;
+        }
+    #contact-page .content {
+        align-items: center;
+        }
+    .form-heading {
+        font-size: 1.5rem;
+        padding-bottom: 0;
+        padding-top: 1rem;
+        }
+    label {
+        align-self: start;
+        font-size: 0.95rem;
+        margin-top: 0rem;
+        }
+    #name, #email, #message {
+        width: 17rem;
+        height: 2.25rem;
+        margin-bottom:0;
+        font-size: 0.85rem;
+        }
+    #message {
+        height: 7.5rem;
+        padding-bottom: 0;
+        }
+    #submit_btn {
+        font-size: 0.95rem;
+        height: 2.25rem;
+        font-weight: 450;
+        margin-top: 1rem;
+        margin-bottom: 0.25rem;
+        width: 10rem;
+        }
+    .error-message {
+        font-weight: 500 !important;
+        line-height: 5px;
+        margin-top: 0.15rem;
+        align-self: start;
+        font-size: 0.7rem;
+        }
+}
+/* For Tablets, iPads */
+@media only screen and (min-width : 768px) {
+    nav {
+        text-align: left;
+        padding-right: 0;
+        }
+    nav a {
+        font-size: 1.2rem;
+        }
+    nav li {
+        margin-right: 2rem;
+        }
+    nav ul {
+        text-align: left;
+        padding-left: 1.75rem;
+        }
+    .heading-home {
+        font-size: 1.65rem;
+        padding: 1.75rem 0rem 0.6rem 3rem;
+        }
+    h3.heading-home {
+        font-size: 1.8rem;
+        padding-top: 0.5rem;
+        }
+    .main {
+        flex-direction: row;
+        align-items: flex-start;
+        }
+    .content-home {
+        max-width: 97% !important;
+        font-size: 1.15rem;
+        padding-left: 3rem;
+        }
+    .buttons {
+        font-size: 1.15rem;
+        padding-left: 3rem;
+        }
+    .button {
+        border-radius: 0.35em;
+        font-size: 1rem;
+        height: 2.5em;
+        font-weight: 500;
+        width: 9.5rem;
+        margin-right: 10px;
+        }
+    .profile-img {
+        margin-right: 4.5rem;
+        width: 15rem;
+        margin-top: 0rem;
+        }
+    .socialIcons {
+        font-size: 1.55em;
+        }
+    .socialIcons a:hover > i{
+        font-size: 1.65rem;
+        }
+    .text-center {
+        padding: 0rem;
+        max-width: 700px !important;
+        }
+    .card-img, .card-container {
+        height: 12rem;
+        }
+    .card-button, .card-title, .card-content{
+        font-size: 0.9rem;
+        font-weight: normal;
+        padding: 0;
+        }
+    .card-title {
+        font-size: 1.15rem;
+        }
+    .card-button {
+        font-size: 0.85rem;
+        padding: 8px;
+        border-radius: 0.35em;
+        }
+    .labels {
+        flex-direction: row;
+        }
+    .left-side {
+        flex-direction: column;
+        margin-right: 1rem;
+        }
+    .right-side {
+        margin-left: 1rem;
+        flex-direction: column;
+        }
+    #contact {
+        color: red;
+        font-size: 3.25rem;
+        text-align: center;
+        margin-top: 15px;
+        }
+    #contact-page p {
+        font-size: 1.25rem;
+        /*max-width: 50%;*/
+        }
+    .form-heading {
+        font-size: 1.75rem;
+        padding-bottom: 0;
+        padding-top: 4rem;
+        }
+    label {
+        align-self: start;
+        font-size: 1rem;
+        margin-top: 0.4rem;
+        }
+    #name, #email, #message {
+        width: 20rem;
+        height: 2.75rem;
+        margin-bottom:0;
+        font-size: 1rem;
+        }
+    #message {
+        height: 9.2rem;
+        padding-bottom: 0;
+        }
+    #submit_btn {
+        font-size: 1rem;
+        height: 2.75rem;
+        font-weight: 450;
+        margin-top: 1.5rem;
+        margin-bottom: 0.25rem;
+        width: 10rem;
+        }
+    .error-message {
+        font-weight: 500 !important;
+        line-height: 4px;
+        margin-top: 0.5rem;
+        align-self: start;
+        font-size: 0.85rem;
+        }
+}
+
+@media only screen and (min-width: 992px) {
+    nav {
+        text-align: left;
+        padding-right: 0;
+        }
+    nav a {
+        font-size: 1.25rem;
+        }
+    nav li {
+        margin-right: 2rem;
+        }
+    nav ul {
+        padding-left: 1rem;
+        }
+    .heading-home {
+        font-size: 1.9rem;
+        padding: 1.75rem 0rem 0.6rem 3rem;
+        }
+    h3.heading-home {
+        font-size: 2.2rem;
+        padding-top: 1rem;
+        padding-bottom: 1.5rem;
+        }
+    .content-home {
+        max-width: 95% !important;
+        font-size: 1.15rem;
+        padding-left: 3rem;
+        }
+    .buttons {
+        font-size: 1.15rem;
+        padding-left: 3rem;
+        }
+    .button {
+        border-radius: 0.35em;
+        font-size: 1.1rem;
+        height: 2.25em;
+        font-weight: 500;
+        width: 10.5rem;
+        margin-right: 10px;
+        }
+    .profile-img {
+        margin-right: 3rem;
+         }
+    .socialIcons {
+        font-size: 1.7rem;
+        }
+    .socialIcons a:hover > i {
+        font-size: 1.85rem;
+        }
+    .text-center {
+        padding: 0rem;
+        max-width: 950px !important;
+        }
+    .card {
+        margin: 1rem;
+        }
+    .card-img, .card-container {
+        height: 12rem;
+        }
+    .card-title, .card-content {
+        font-size: 0.9rem;
+        font-weight: normal;
+        padding: 0;
+        }
+    .card-title {
+        font-size: 1.1rem;
+        }
+    .card-button {
+        font-size: 0.925rem;
+        padding: 8px;
+        border-radius: 0.35em;
+        }
+    .labels {
+        flex-direction: row;
+        }
+    .left-side {
+        flex-direction: column;
+        margin-right: 1rem;
+        }
+    .right-side {
+        margin-left: 1rem;
+        flex-direction: column;
+        }
+    #contact {
+        color: skyblue;
+        font-size: 3.5rem;
+        text-align: center;
+        margin-top: 15px;
+        }
+    #contact-page p {
+        font-size: 1.3rem;
+        /*max-width: 55%;*/
+        font-weight: 400;
+        }
+    .form-heading {
+        font-size: 2rem;
+        padding-bottom: 0;
+        padding-top: 4rem;
+        }
+    label {
+        align-self: start;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+        }
+    #name, #email, #message {
+        width: 25rem;
+        height: 3.25rem;
+        margin-bottom:0;
+        font-size: 1.1rem;
+        }
+    #message {
+        height: 10.5rem;
+        padding-bottom: 0;
+        }
+    #submit_btn {
+        font-size: 1.1rem;
+        height: 3.25rem;
+        font-weight: 450;
+        margin-top: 1.75rem;
+        margin-bottom: 0.25rem;
+        width: 10rem;
+        }
+    .error-message {
+        font-weight: 500 !important;
+        line-height: 4px;
+        margin-top: 0.5rem;
+        align-self: start;
+        font-size: 0.85rem;
+        }
+}
+
+@media only screen and (min-width: 1280px) {
+    nav {
+        text-align: left;
+        padding-right: 0;
+        }
+    nav a {
+        font-size: 1.45rem;
+        }
+    nav li {
+        margin-right: 2rem;
+        }
+    nav ul {
+        padding-left: 2rem;
+        line-height: 1.5rem;
+        }
+    .heading-home {
+        font-size: 1.8rem;
+        padding: 1.75rem 0rem 0.6rem 6.5rem;
+        }
+    h3.heading-home {
+        font-size: 2rem;
+        padding-top: 0.8rem;
+        padding-bottom: 1rem;
+        }
+    .content-home {
+        max-width: 95% !important;
+        font-size: 1.3rem;
+        padding-left: 6.5rem;
+        }
+    .buttons {
+        font-size: 1.15rem;
+        padding-left: 6.5rem;
+        }
+    .button {
+        border-radius: 0.35rem;
+        font-size: 1.1rem;
+        height: 2.5em;
+        font-weight: 500;
+        width: 10.5rem;
+        margin-right: 10px;
+        }
+    .profile-img {
+        margin-right: 5.5rem;
+        }
+    .socialIcons {
+        font-size: 1.85rem;
+        }
+    .socialIcons a:hover > i {
+        font-size: 1.95rem;
+        }
+    .text-center {
+        padding: 0rem;
+        }
+    .card-img, .card-container {
+        height: 14rem;
+        }
+    .card-button, .card-title, .card-content {
+        font-size: 1.2rem;
+        font-weight: normal;
+        padding: 0;
+        }
+    .card-title {
+        font-size: 1.35rem;
+        }
+    .card-button {
+        font-size: 1rem;
+        padding: 8px;
+        border-radius: 0.35em;
+        }
+    .labels {
+        flex-direction: row;
+        }
+    .left-side {
+        flex-direction: column;
+        margin-right: 1rem;
+        }
+    .right-side {
+        margin-left: 1rem;
+        flex-direction: column;
+        }
+    #contact {
+        color: chartreuse;
+        font-size: 3.75rem;
+        text-align: center;
+        margin-top: 15px;
+        }
+    #contact-page p {
+        font-size: 1.4rem;
+       /* max-width: 55%;*/
+        font-weight: 450;
+        }
+    .form-heading {
+        font-size: 2.4rem;
+        padding-bottom: 0;
+        padding-top: 3rem;
+        }
+    label {
+        align-self: start;
+        font-size: 1.15rem;
+        margin-top: 0.5rem;
+        }
+    #name, #email, #message {
+        width: 30rem;
+        height: 3.5rem;
+        margin-bottom:0;
+        font-size: 1rem;
+        }
+    #message {
+        height: 11rem;
+        padding-bottom: 0;
+        }
+    #submit_btn {
+        font-size: 1.15rem;
+        height: 3.5rem;
+        font-weight: 450;
+        margin-top: 1.5rem;
+        margin-bottom: 0.25rem;
+        width: 10rem;
+        }
+    .error-message {
+        font-weight: 500 !important;
+        line-height: 4px;
+        margin-top: 0.5rem;
+        align-self: start;
+        font-size: 1rem;
+        }
+}
+
+@media only screen and (min-width: 1440px) {
+    nav {
+        text-align: left;
+        padding-right: 0;
+        }
+    nav a {
+        font-size: 1.4rem;
+        }
+    nav li {
+        margin-right: 2rem;
+        }
+    nav ul {
+        padding-left: 2rem;
+        }
+    .heading-home {
+        font-size: 1.9rem;
+        padding: 1.75rem 0rem 0.6rem 5rem;
+        }
+    h3.heading-home {
+        font-size: 2.2rem;
+        padding-top: 1rem;
+        }
+    .content-home {
+        max-width: 94% !important;
+        font-size: 1.35rem;
+        padding-left: 5rem;
+        }
+    .buttons {
+        font-size: 1rem;
+        padding-left: 5rem;
+        }
+    .button {
+        border-radius: 0.35rem;
+        font-size: 1.1rem;
+        height: 2.5em;
+        font-weight: 500;
+        width: 11.5rem;
+        margin-right: 10px;
+        }
+    .profile-img {
+        margin-right: 5.5rem;
+        }
+    .socialIcons {
+        font-size: 2.15rem;
+        }
+    .socialIcons a:hover > i {
+        font-size: 2.3rem;
+        }
+    .text-center {
+        padding: 0rem;
+        max-width: 1400px !important;
+        }
+    .card-body {
+        padding: 1rem !important;
+        }
+    .card-title, .card-content {
+        font-size: 1.2rem;
+        font-weight: normal;
+        padding: 0;
+        }
+    .card-title {
+        font-size: 1.45rem;
+        }
+    .labels {
+        flex-direction: row;
+        }
+    .left-side {
+        flex-direction: column;
+        margin-right: 1rem;
+        }
+    .right-side {
+        margin-left: 1rem;
+        flex-direction: column;
+        }
+    #contact {
+        color: magenta;
+        font-size: 3.5rem;
+        text-align: center;
+        margin-top: 15px;
+        }
+    #contact-page p {
+        font-size: 1.4rem;
+        font-weight: 450;
+        text-align: center;
+        }
+    .form-heading {
+        font-size: 2.5rem;
+        padding-bottom: 0;
+        padding-top: 2rem;
+        }
+    label {
+        align-self: start;
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+        }
+    #name, #email, #message {
+        width: 35rem;
+        height: 4rem;
+        margin-bottom:0;
+        font-size: 1.2rem;
+        }
+    #message {
+        height: 12rem;
+        padding-bottom: 0;
+        }
+    #submit_btn {
+        font-size: 1.2rem;
+        height: 4rem;
+        font-weight: 450;
+        margin-top: 1.5rem;
+        margin-bottom: 0.25rem;
+        width: 10rem;
+        }
+    .error-message {
+        font-weight: 500 !important;
+        line-height: 4px;
+        margin-top: 0.5rem;
+        align-self: start;
+        font-size: 1rem;
+        }
+}
+
+/*@media only screen and (min-width: 1440px) {
+    nav {
+        text-align: left;
+        padding-right: 0;
+        }
+    nav a {
+        font-size: 1.5rem;
+        }
+    nav li {
+        margin-right: 2rem;
+        }
+    nav ul {
+        padding-left: 3.5rem;
+        }
+    .heading-home {
+        font-size: 2.15rem;
+        padding: 1.75rem 0rem 0.6rem 3.5rem;
+        }
+    h3.heading-home {
+        font-size: 1.8rem;
+        padding-top: 0.5rem;
+        }
+    .content-home {
+        max-width: 95% !important;
+        font-size: 1.5rem;
+        padding-left: 3.5rem;
+        }
+    .buttons {
+        font-size: 1.15rem;
+        padding-left: 3.5rem;
+        }
+    .button {
+        border-radius: 0.8em;
+        font-size: 1.25rem;
+        height: 2.5em;
+        font-weight: 500;
+        width: 11.5rem;
+        margin-right: 10px;
+        }
+    .socialIcons {
+        font-size: 2.5rem;
+        }
+    .socialIcons a:hover > i {
+        font-size: 2.6rem;
+        }
+    .text-center {
+        padding: 0rem;
+        }
+    .card-img, .card-container {
+        height: 15rem;
+        margin-bottom: 2rem;
+        }
+    .card-container {
+        margin-right: 2rem;
+        }
+    .card-button, .heading, .content {
+        font-size: 1.25rem;
+        font-weight: normal;
+        padding: 0;
+        }
+    .heading {
+        font-size: 1.35rem;
+        }
+    .card-button {
+        font-size: 1rem;
+        padding: 8px;
+        border-radius: 0.7em;
+        }
+    .row-contact {
+        display: -ms-flexbox; /* IE10
+        flex-direction: row;
+        }
+    .side-contact {
+        align-items: center;
+        }
+    .main-contact {
+         align-items: flex-start;
+        }
+    #contact {
+        color: lime;
+        font-size: 2.4rem;
+        text-align: center;
+        margin-top: 15px;
+        }
+    .side-contact p {
+        font-size: 1.5rem;
+        max-width: 55%;
+        font-weight: 450;
+        }
+    .form-heading {
+        font-size: 2rem;
+        padding-bottom: 0;
+        padding-top: 4rem;
+        }
+    label {
+        align-self: start;
+        font-size: 1.35rem;
+        margin-top: 1rem;
+        }
+    #name, #email, #message {
+        width: 29rem;
+        height: 2.5rem;
+        margin-bottom:0;
+        font-size: 1.2rem;
+        }
+    #message {
+        height: 13rem;
+        padding-bottom: 0;
+        }
+    #submit_btn {
+        font-size: 1.3rem;
+        height: 2.5rem;
+        font-weight: 450;
+        margin-top: 1rem;
+        margin-bottom: 0.25rem;
+        width: 29rem;
+        }
+    .error-message {
+        font-weight: 500 !important;
+        line-height: 4px;
+        margin-top: 0.5rem;
+        align-self: start;
+        font-size: 1rem;
+        }
+}*/
+
+
+@media only screen and (max-height: 650px) and (min-width: 992px) {
+      .socialIcons {
+        font-size: 2rem;
+        }
+    .socialIcons a:hover > i {
+        font-size: 2.15rem;
+        }
+    .heading {
+        font-size: 1.35em;
+        }
+    .card-button {
+        font-size: 1.05rem;
+        padding: 10px;
+        border-radius: 0.35rem;
+        }
+
+    #contact {
+        color: lightpink;
+        font-size: 2.25rem;
+        }
+
+    .form-heading {
+        font-size: 1.5rem;
+        padding-bottom: 0;
+        padding-top: 0rem;
+        }
+    label {
+        margin-top: 0.7rem;
+        }
+    #name, #email, #message {
+        width: 25rem;
+        height: 2.25rem;
+        margin-bottom:0;
+        font-size: 1rem;
+        }
+    #message {
+        height: 10rem;
+        padding-bottom: 0;
+        }
+    #submit_btn {
+        font-size: 1.1rem;
+        height: 2.25rem;
+        font-weight: 400;
+        margin-top: 1rem;
+        width: 25rem;
+        }
+    .error-message {
+        font-weight: 500 !important;
+        line-height: 4px;
+        margin-top: 0.5rem;
+        align-self: start;
+        font-size: 1rem;
+        }
+}
+
+
+/*@media only screen and (min-height: 950px) {
+    .bg-img {
+    min-height: 130%;
+    }
+    .navbar {
+        height: 6em;
+        }
+    .topnav a {
+        font-size: 2em;
+        color: orange;
+        padding: 0px 18px;
+        }
+    img[name="contact-page-img"] {
+    height: 28em;
+    }
+    .socialIcons {
+    font-size: 1.85em;
+    }
+    #contact {
+    font-size: 2.35em;
+    margin: 5px;
+    }
+   #name, #email, #message {
+    margin-left: 5px;
+    height: 2.25em;
+    margin: 1.5px;
+    font-size: 15px;
+    width: 20em;
+    }
+    #message {
+    height: 7.25em;
+    }
+    label {
+    font-size: 1.15em;
+    }
+    #submit_btn {
+    height: 2.25em;
+    font-size: 0.7em;
+    }
+    .error-message {
+    font-size: 0.7em;
+    }
+}

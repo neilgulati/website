@@ -1,0 +1,40 @@
+
+{% include "header.html" %}
+
+<!-- INTRODUCTION -->
+<div id="home">
+    <div class="content-wrapper">
+        <div class="content">
+            <h2 class="heading-home">Hello, there!</h2>
+            <h3 class="heading-home">I am <span class="highlight">Full Name</span>.</h3>
+            <div class="main">
+              <div class="text">
+                <p class="content-home">
+                    I am currently working as an associate, where I work with financial models.
+                    I have completed CFA Level 3 and
+                    hold a Bachelor's in Economics.<br><br>
+                    I am also dabbling in Python and SQL, and
+                    trying to apply what I have learnt during my studies. <br>
+                    Beyond work, you would find me reading whodunnits,
+                    watching cat videos, and occasionally working on my projects.<br><br>
+                    Check out my projects and say hello!
+                </p>
+                <div class="buttons">
+                    <a href="#work" class="button btn-project">Explore my Work</a>
+                    <a href="#contact-page" class="button btn-contact">Contact Me</a>
+                </div>
+            </div>
+            <div class="profile-img"></div>
+        </div>
+    </div>
+</div>
+
+ <div id="work">
+    {% include "work.html" %}
+ </div>
+<div id="contact-page">
+    {% include "contact.html" %}
+ </div>
+
+
+{% include "footer.html" %}

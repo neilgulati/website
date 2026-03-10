@@ -1,0 +1,79 @@
+{% from "bootstrap5/form.html" import render_form %}
+
+<div id="contact-page">
+    <div class="content-wrapper">
+        <div class="content">
+            <h2 id="contact">Get in Touch</h2>
+            <p>I'm always open to learning new things and exploring ideas. Let's chat! </p>
+            <div class="contact_form">
+                <form id="form" method="POST" action="{{ url_for('contact') }}" novalidate>
+                    <h2 class="form-heading">CONTACT ME</h2>
+                    <div class="labels">
+                        <div class="left-side">
+                        {{ form.csrf_token }}
+                            {{ form.hidden_tag() }}
+                        {{ form.name.label }}  {{ form.name() }}
+                            {% if form.name.errors %}
+                                {% for error in form.name.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            {% endif %}
+                        {{ form.email.label }} {{ form.email() }}
+                            {% if form.email.errors %}
+                                {% for error in form.email.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="right-side">
+                        {{ form.message.label }}  {{ form.message() }}
+                        </div>
+                    </div>
+                        {{ form.submit_btn(size=30) }}
+                </form>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function () {
+                const form = document.getElementById("form");
+
+                form.addEventListener("submit", async function (event) {
+                    event.preventDefault();  // Stop page from refreshing
+
+                    // Clear previous errors
+                    document.querySelectorAll(".error-message").forEach(el => el.remove());
+
+                    const formData = new FormData(form);
+
+                    const response = await fetch(form.action, {
+                        method: "POST",
+                        body: formData,
+                        headers: {
+                            "X-Requested-With": "XMLHttpRequest"
+                        }
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        alert("Message sent successfully!");
+                        form.reset();
+                    } else {
+                        const errors = result.errors;
+                        for (const field in errors) {
+                            const input = document.querySelector(`[name="${field}"]`);
+                            if (input) {
+                                const errorEl = document.createElement("div");
+                                errorEl.classList.add("error-message");
+                                errorEl.style.color = "red";
+                                errorEl.textContent = errors[field].join(", ");
+                                input.insertAdjacentElement("afterend", errorEl);
+                            }
+                        }
+                    }
+                });
+            });
+        </script>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+
+<!--FOOTER -->
+        <footer class="footer">
+            <div class="socialIcons">
+                <ul class="nav justify-content-center pb-3 ">
+                    <li class="nav-item"><a href="mailto:neil.gulati07@gmail.com"><i class="fa fa-envelope"></i></a>
+                    <li class="nav-item"><a href="https://github.com/neilgulati"><i class="fa-brands fa-github"></i></a>
+                    <li class="nav-item"><a href="https://www.linkedin.com/in/vatsala-gulati-798157193/"><i class="fa-brands fa-linkedin-in"></i></a>
+                </ul>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            let darkmode = localStorage.getItem('darkmode')
+            const themeSwitch = document.getElementById('theme-switch')
+
+            const enableDarkmode = () => {
+              document.body.classList.add('darkmode')
+              localStorage.setItem('darkmode', 'active')
+            }
+
+            const disableDarkmode = () => {
+              document.body.classList.remove('darkmode')
+              localStorage.setItem('darkmode', null)
+            }
+
+            if(darkmode === "active") enableDarkmode()
+
+            themeSwitch.addEventListener("click", () => {
+              darkmode = localStorage.getItem('darkmode')
+              darkmode !== "active" ? enableDarkmode() : disableDarkmode()
+            })
+        </script>
+ <!-- FOOTER -->
+    </body>
+</html>

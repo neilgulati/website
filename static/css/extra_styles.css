@@ -1,0 +1,147 @@
+.bg-img {
+    background-image: url("https://images.unsplash.com/vector-1746718658669-af89d485f177?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880");
+    background: ivory;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    min-height: 100vh;
+    z-index: 10;
+}
+
+.wave {
+  z-index: ;
+  display: block;
+  position: relative;
+  height: 40px;
+  width: 100%;
+  background: rgb(57, 27, 112);
+  transform: scale(1, 1.5);
+}
+
+.wave:before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100%;
+  width: 100%;
+  height: 300px;
+  background-color: white;
+  right: -25%;
+  top: 20px;
+}
+
+.wave:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100%;
+  width: 100%;
+  height: 300px;
+  background-color: rgb(57, 27, 112);
+  left: -25%;
+  top: -240px;
+  clip-path: ellipse(100% 15% at -15% 100%);
+}
+
+section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 600px;
+    padding-top: 100px;
+    background: #3c31dd;
+    }
+
+
+@keyframes animatedTextGradient {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.card-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    }
+
+card-image-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s;
+    }
+
+
+.card-image-overlay:hover {
+    backdrop-filter: blur(20px);
+    background:rgba(0,0,0,.7);
+    opacity: 1;
+    }
+
+.text-intro {
+    font-size: clamp(1.8rem, 7.5vh, 3.5rem);  clamp(min, preferred, max)
+    font-weight: 700;
+    background: linear-gradient(to right, white, lightgreen, white, lightgreen);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    vertical-align: baseline;
+    text-align: center;
+}
+
+
+.cursor {
+    display: inline-block;
+    border-right: 2px solid rgba(255,255,255,.75);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(500%);
+    }
+
+.typing-animation {
+    animation: typewriter 2s steps(42) 1s 1 normal both,
+    blinkingCursor 500ms steps(1) infinite normal;
+    }
+
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 42ch; }  this ch is roughly based on many characters you have --> adjust steps based on the same
+    }
+
+@keyframes blinkingCursor{
+  from { border-right-color: rgba(255,255,255,.75); }
+  to { border-right-color: transparent; } */
+
+
+.text-intro {
+    margin-top: 50vh;
+    place-self: center;
+    background: linear-gradient(90deg, chartreuse, rebeccapurple, chartreuse) -50%/ 200%;
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+    font: 650 clamp(2em, 6vw, 10em) exo, sans-serif;
+    animation: shimmer 5s linear infinite
+}
+
+@keyframes shimmer { to { background-position: 100% } }
+
+img[name="contact-page-img"] {
+    width: 100%;
+    height: 28em;
+    }
+
